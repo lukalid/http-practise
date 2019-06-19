@@ -4,6 +4,7 @@
       <input type="text" #serverName class="form-control">
       <button class="btn btn-primary" (click)="onAddServer(serverName.value)">Add Server</button>
       <button class="btn btn-primary" (click)="onSaveServers()">Save servers</button>
+      <button class="btn btn-primary" (click)="onFetchServers()">Fetch servers</button>
       <hr>
       <ul class="list-group" *ngFor="let server of servers">
         <li class="list-group-item">{{ server.name }} (ID: {{ server.id }})</li>

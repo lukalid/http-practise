@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {ServerService} from './server.service';
+import { Component } from '@angular/core';
+import { Server, ServerService } from './server.service';
 
 @Component({
   selector: 'app-root',
@@ -41,4 +41,12 @@ export class AppComponent {
       (error) => console.log(error)
     );
   }
+
+  onFetchServers() {
+    this.serverService.getServers().subscribe(
+      (response: Server) => console.log(response),
+      (error) => console.log(error)
+    );
+  }
+
 }

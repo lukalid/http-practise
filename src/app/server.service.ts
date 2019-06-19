@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+export interface Server {
+  name: string;
+  capacity: number;
+  id: number;
+}
+
 @Injectable()
 export class ServerService {
 
@@ -13,6 +19,10 @@ export class ServerService {
       'Content-Type': 'application/json'
     });
     return this.httpService.post(this.url, servers, {headers: serverHeaders});
+  }
+
+  getServers() {
+    return this.httpService.get<Server>(this.url);
   }
 
 }
