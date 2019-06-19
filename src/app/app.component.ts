@@ -44,7 +44,7 @@ export class AppComponent {
 
   onFetchServers() {
     this.serverService.getServers().subscribe(
-      (response: Server) => console.log(response),
+      (servers: Server[]) => this.servers = servers,
       (error) => console.log(error)
     );
   }

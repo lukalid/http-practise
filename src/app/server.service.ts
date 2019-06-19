@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import 'rxjs/Rx';
 
 export interface Server {
   name: string;
@@ -23,7 +24,7 @@ export class ServerService {
   }
 
   getServers() {
-    return this.httpService.get<Server>(this.url);
+    return this.httpService.get<Server[]>(this.url).map((response) => response);
   }
 
 }
