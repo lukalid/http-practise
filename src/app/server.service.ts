@@ -30,4 +30,9 @@ export class ServerService {
       .catch((error: any) => Observable.throwError(error));
   }
 
+  getAppName() {
+    return this.httpService.get<string>('https://angular-http-practise-luka.firebaseio.com/appName.json')
+      .map((response) => response);
+  }
+
 }
