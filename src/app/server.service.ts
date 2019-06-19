@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ServerService {
@@ -9,7 +9,10 @@ export class ServerService {
   constructor(private httpService: HttpClient) { }
 
   storeServers(servers: any[]) {
-    return this.httpService.post(this.url, servers);
+    const serverHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.httpService.post(this.url, servers, {headers: serverHeaders});
   }
 
 }
