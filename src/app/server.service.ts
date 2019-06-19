@@ -18,7 +18,8 @@ export class ServerService {
     const serverHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.httpService.post(this.url, servers, {headers: serverHeaders});
+    // return this.httpService.post(this.url, servers, {headers: serverHeaders});
+    return this.httpService.put(this.url, servers, {headers: serverHeaders});
   }
 
   getServers() {
