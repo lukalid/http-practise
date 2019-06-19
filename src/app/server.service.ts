@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
+import {Observable, ObservableInput} from 'rxjs';
 
 export interface Server {
   name: string;
@@ -24,7 +25,9 @@ export class ServerService {
   }
 
   getServers() {
-    return this.httpService.get<Server[]>(this.url).map((response) => response);
+    return this.httpService.get<Server[]>(this.url)
+      .map((response) => response)
+      .catch((error: any) => Observable.throwError(error));
   }
 
 }
